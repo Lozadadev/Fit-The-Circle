@@ -12,15 +12,15 @@ import com.lozada.fitthecircle.Constants;
 
 public class CircleEntity extends Actor{
     /** The player texture. */
-    public Sprite sprite;
-    public Circle bound;
+    private Sprite sprite;
+    Circle bound;
     /** The world instance this player is in. */
     private float degrees, speed, accel;
     private Vector2 position;
     private final float x;
     private final float y;
 
-    public CircleEntity(Texture texture, Vector2 position) {
+    CircleEntity(Texture texture, Vector2 position) {
         sprite = new Sprite(texture);
         x = position.x;
         y = position.y;
@@ -56,5 +56,9 @@ public class CircleEntity extends Actor{
     private Vector2 calculateOrbit(float currentOrbitDegrees, float distance) {
         float radians = MathUtils.degreesToRadians*currentOrbitDegrees;
         return new Vector2(x+MathUtils.cos(radians) * distance,y+ (MathUtils.sin(radians) * distance));
+    }
+    public void reset() {
+        accel=1;
+        degrees = 0;
     }
 }

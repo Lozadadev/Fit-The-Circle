@@ -11,11 +11,8 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.lozada.fitthecircle.Constants;
-import com.lozada.fitthecircle.GameScreen;
+import com.lozada.fitthecircle.Main;
 
-/**
- * Created by GONZALO on 9/4/2017.
- */
 
 public class BlockEntity extends Actor {
     /** The player texture. */
@@ -24,12 +21,11 @@ public class BlockEntity extends Actor {
     private float openLen;
     private Vector2 position;
     private Circle player;
-    private Pixmap color;
-    private GameScreen screen;
+    private Main game;
     private Texture texture;
-    BlockEntity(Circle player,GameScreen screen, Vector2 position, float openLen) {
-        this.screen = screen;
-        color = new Pixmap(1,1, Pixmap.Format.RGB888);
+    BlockEntity(Circle player, Main game, Vector2 position, float openLen) {
+        this.game = game;
+        Pixmap color = new Pixmap(1, 1, Pixmap.Format.RGB888);
         color.setColor(Color.BLACK);
         color.fill();
         texture = new Texture(color);
@@ -72,32 +68,10 @@ public class BlockEntity extends Actor {
             this.remove();
             return;
         }
-        if(Intersector.overlaps(player, boundLeft)) {
-            color.setColor(Color.BLUE);
-            color.fill();
-            texture = new Texture(color);
-            spriteLeft.setTexture(texture);
-            screen.currentState = GameScreen.GAME_OVER;
-
-        } else {
-            color.setColor(Color.BLACK);
-            color.fill();
-            texture = new Texture(color);
-            spriteLeft.setTexture(texture);
+        if(Intersector.overlaps(player, boundLeft) || Intersector.overlaps(player, boundRight)) {
+            game.setScreen(game.gameOverScreen);
         }
 
-        if(Intersector.overlaps(player, boundRight)) {
-            color.setColor(Color.BLUE);
-            color.fill();
-            texture = new Texture(color);
-            spriteRight.setTexture(texture);
-            screen.currentState = GameScreen.GAME_OVER;
-        } else {
-            color.setColor(Color.BLACK);
-            color.fill();
-            texture = new Texture(color);
-            spriteRight.setTexture(texture);
-        }
 
     }
 }

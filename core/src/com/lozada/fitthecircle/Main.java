@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class Main extends Game {
 	private AssetManager manager;
+    BaseScreen menuScreen, gameScreen;
+    public BaseScreen gameOverScreen;
 	@Override
 	public void create() {
 		// Initialize the asset manager. We add every aset to the manager so that it can be loaded
@@ -17,7 +19,15 @@ public class Main extends Game {
 		manager.load("path.png", Texture.class);
 		manager.finishLoading();
 
-		setScreen(new GameScreen(this));
+		// Enter the loading screen to load the assets.
+		LoadingScreen loadingScreen = new LoadingScreen(this);
+		setScreen(loadingScreen);
+	}
+	void finishLoading() {
+		menuScreen = new MenuScreen(this);
+		gameScreen = new GameScreen(this);
+		gameOverScreen = new GameOverScreen(this);
+		setScreen(menuScreen);
 	}
 	public AssetManager getManager() {
 		return manager;
