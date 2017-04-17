@@ -62,7 +62,7 @@ public class BlockEntity extends Actor {
 
     @Override
     public void act(float delta) {
-        position.y -= 1.5f*delta;
+        position.y -= delta;
         if(position.y < -0.25f) {
             texture.dispose();
             this.remove();

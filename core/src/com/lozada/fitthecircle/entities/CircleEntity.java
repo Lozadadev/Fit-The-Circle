@@ -44,14 +44,14 @@ public class CircleEntity extends Actor{
 
     @Override
     public void act(float delta) {
-        degrees = degrees >= 360? 0:degrees+speed*(accel+1*delta);
+        degrees = degrees >= 360? 0:degrees+(speed+delta)*accel;
         position = calculateOrbit(degrees,1.25f);
     }
     public void incrementSpeed(boolean set) {
-        if(set)accel = 2;else accel =1;
+        if(set)accel = 1.5f;else accel =1;
     }
     public void decrementSpeed(boolean set) {
-        if(set)accel = 0.25f;else accel =1;
+        if(set)accel = 0.4f;else accel =1;
     }
     private Vector2 calculateOrbit(float currentOrbitDegrees, float distance) {
         float radians = MathUtils.degreesToRadians*currentOrbitDegrees;

@@ -17,11 +17,7 @@ public class EntityFactory {
     private Main game;
     private GameScreen screen;
     private CircleEntity player;
-    /**
-     * Create a new entity factory using the provided asset manager.
-     *
-     * @param manager the asset manager used to generate things.
-     */
+
     public EntityFactory(Main game, GameScreen screen) {
         this.game = game;
         this.manager = game.getManager();
@@ -43,14 +39,14 @@ public class EntityFactory {
         LinkedList<BlockEntity> ret = new LinkedList<BlockEntity>();
         switch (dificulty) {
             case 0:
-                ret.add(new BlockEntity(player.bound,game, new Vector2(5.1f,8), 1.2f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.7f,9), 1.2f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.3f,10), 1.2f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(3.9f,11), 1.2f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.5f,13), 1.2f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.9f,14), 1.2f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(5.3f,15), 1.2f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(0,17f), 0));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(5.1f,8), 1.7f));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(4.6f,8.5f), 1.7f));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(4.2f,9), 1.7f));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(3.7f,9.5f), 1.7f));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(4.5f,11.5f), 1.7f));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(4.9f,12), 1.7f));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(5.3f,12.5f), 1.7f));
+                ret.add(new BlockEntity(player.bound,game, new Vector2(0,14f), 0));
                 break;
             case 1:
                 break;
