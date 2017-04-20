@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -19,6 +20,7 @@ public class BlockEntity extends Actor {
     /** The player texture. */
     private Sprite spriteLeft, spriteRight;
     private Rectangle boundLeft, boundRight;
+    private Polygon boundTest;
     private float openLen;
     private Vector2 position;
     private Circle player;
@@ -43,7 +45,7 @@ public class BlockEntity extends Actor {
         spriteRight.setOriginCenter();
         boundLeft = new Rectangle((position.x - 4) * Constants.PIXELS_IN_METER, (position.y - 0.25f) * Constants.PIXELS_IN_METER, getWidth(),getHeight());
         boundRight = new Rectangle((position.x + 4) * Constants.PIXELS_IN_METER, (position.y - 0.25f) * Constants.PIXELS_IN_METER, getWidth(),getHeight());
-
+        boundTest = new Polygon();
     }
 
     @Override

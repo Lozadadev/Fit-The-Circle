@@ -15,14 +15,10 @@ import java.util.LinkedList;
 public class EntityFactory {
 
     private AssetManager manager;
-    private Main game;
-    private GameScreen screen;
     private CircleEntity player;
 
-    public EntityFactory(Main game, GameScreen screen) {
-        this.game = game;
+    public EntityFactory(Main game) {
         this.manager = game.getManager();
-        this.screen = screen;
     }
 
     public CircleEntity createCircle(Vector2 position) {
@@ -35,19 +31,13 @@ public class EntityFactory {
         return new com.lozada.fitthecircle.entities.PathEntity(pathTexture, position);
     }
 
-    public LinkedList<BlockEntity> createBlocks(int dificulty, collisionInterface game) {
+    public LinkedList<BlockEntity> createBlocks(int dificulty, collisionInterface colilisionInterface) {
         //8x12 SCREEN
         LinkedList<BlockEntity> ret = new LinkedList<BlockEntity>();
         switch (dificulty) {
             case 0:
-                ret.add(new BlockEntity(player.bound,game, new Vector2(5.1f,8), 1.7f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.6f,8.5f), 1.7f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.2f,9), 1.7f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(3.7f,9.5f), 1.7f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.5f,11.5f), 1.7f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(4.9f,12), 1.7f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(5.3f,12.5f), 1.7f));
-                ret.add(new BlockEntity(player.bound,game, new Vector2(0,14f), 0));
+                ret.add(new BlockEntity(player.bound,colilisionInterface, new Vector2(5.1f,8), 1.7f));
+
                 break;
             case 1:
                 break;
