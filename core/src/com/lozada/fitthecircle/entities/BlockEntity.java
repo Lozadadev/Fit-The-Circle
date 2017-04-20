@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.lozada.fitthecircle.Constants;
 import com.lozada.fitthecircle.Main;
+import com.lozada.fitthecircle.collisionInterface;
 
 
 public class BlockEntity extends Actor {
@@ -21,9 +22,9 @@ public class BlockEntity extends Actor {
     private float openLen;
     private Vector2 position;
     private Circle player;
-    private Main game;
+    private collisionInterface game;
     private Texture texture;
-    BlockEntity(Circle player, Main game, Vector2 position, float openLen) {
+    BlockEntity(Circle player, collisionInterface game, Vector2 position, float openLen) {
         this.game = game;
         Pixmap color = new Pixmap(1, 1, Pixmap.Format.RGB888);
         color.setColor(Color.BLACK);
@@ -69,7 +70,7 @@ public class BlockEntity extends Actor {
             return;
         }
         if(Intersector.overlaps(player, boundLeft) || Intersector.overlaps(player, boundRight)) {
-            game.setScreen(game.gameOverScreen);
+            game.hitBlock();
         }
 
 

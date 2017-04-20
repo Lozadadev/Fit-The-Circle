@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.lozada.fitthecircle.GameScreen;
 import com.lozada.fitthecircle.Main;
+import com.lozada.fitthecircle.collisionInterface;
 
 import java.util.LinkedList;
 
@@ -34,7 +35,7 @@ public class EntityFactory {
         return new com.lozada.fitthecircle.entities.PathEntity(pathTexture, position);
     }
 
-    public LinkedList<BlockEntity> createBlocks(int dificulty) {
+    public LinkedList<BlockEntity> createBlocks(int dificulty, collisionInterface game) {
         //8x12 SCREEN
         LinkedList<BlockEntity> ret = new LinkedList<BlockEntity>();
         switch (dificulty) {

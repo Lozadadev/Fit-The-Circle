@@ -14,7 +14,7 @@ import com.lozada.fitthecircle.entities.PathEntity;
 import java.util.LinkedList;
 
 
-public class GameScreen extends BaseScreen {
+public class GameScreen extends BaseScreen implements collisionInterface {
     private Stage stage;
     private CircleEntity player;
     private PathEntity path;
@@ -37,7 +37,7 @@ public class GameScreen extends BaseScreen {
     public void show() {
         Gdx.input.setInputProcessor(new inputProcessor());
         player.reset();
-        blockList = factory.createBlocks(0);
+        blockList = factory.createBlocks(0, this);
 
         stage.addActor(path);
         stage.addActor(player);
@@ -60,6 +60,12 @@ public class GameScreen extends BaseScreen {
         stage.act();
         stage.draw();
     }
+
+    @Override
+    public void hitBlock() {
+        game.setScreen(game.gameOverScreen);
+    }
+
     private class inputProcessor extends inputInterface {
         private float midScreen;
         inputProcessor() {
