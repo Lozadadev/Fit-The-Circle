@@ -7,17 +7,17 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.lozada.fitthecircle.Constants;
-import com.lozada.fitthecircle.Main;
 import com.lozada.fitthecircle.collisionInterface;
 
+/**
+ * Created by gonzalo on 21/04/2017.
+ */
 
-public class BlockEntity extends Actor {
-    /** The player texture. */
+public class PolygonEntity extends Actor {
     private Sprite spriteLeft, spriteRight;
     private Rectangle boundLeft, boundRight;
     private float openLen;
@@ -25,7 +25,7 @@ public class BlockEntity extends Actor {
     private Circle player;
     private collisionInterface game;
     private Texture texture;
-    BlockEntity(Circle player, collisionInterface game, Vector2 position, float openLen) {
+    PolygonEntity(Circle player, collisionInterface game, Vector2 position, float openLen) {
         this.game = game;
         Pixmap color = new Pixmap(1, 1, Pixmap.Format.RGB888);
         color.setColor(Color.BLACK);
