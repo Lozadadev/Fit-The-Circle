@@ -70,7 +70,7 @@ public class BlockEntity extends Actor {
             return;
         }
         if(Intersector.overlaps(player, boundLeft) || Intersector.overlaps(player, boundRight)) {
-            game.hitBlock();
+            //game.hitBlock();
         }
 
 

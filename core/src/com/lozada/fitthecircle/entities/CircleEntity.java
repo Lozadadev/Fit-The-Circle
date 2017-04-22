@@ -13,7 +13,7 @@ import com.lozada.fitthecircle.Constants;
 public class CircleEntity extends Actor{
     /** The player texture. */
     private Sprite sprite;
-    Circle bound;
+    public Circle bound;
     /** The world instance this player is in. */
     private float degrees, speed, accel;
     private Vector2 position;
@@ -26,7 +26,7 @@ public class CircleEntity extends Actor{
         y = position.y;
         setSize(0.5f*Constants.PIXELS_IN_METER, 0.5f*Constants.PIXELS_IN_METER);
         sprite.setSize(getWidth(),getHeight());
-        sprite.setOriginCenter();
+        //sprite.setOriginCenter();
         bound = new Circle((position.x - 0.25f) * Constants.PIXELS_IN_METER,
                 (position.y - 0.25f) * Constants.PIXELS_IN_METER, 0.25f*Constants.PIXELS_IN_METER);
         speed = 1.5f;
@@ -36,9 +36,9 @@ public class CircleEntity extends Actor{
     @Override
     public void draw(Batch batch, float parentAlpha) {
         setPosition((position.x - 0.25f) * Constants.PIXELS_IN_METER,
-                (position.y - 0.35f) * Constants.PIXELS_IN_METER);
+                (position.y - 0.25f) * Constants.PIXELS_IN_METER);
         sprite.setPosition(getX(),getY());
-        bound.setPosition(getX(),getY());
+        bound.setPosition(getX()+0.25f*Constants.PIXELS_IN_METER,getY()+0.25f*Constants.PIXELS_IN_METER);
         sprite.draw(batch);
     }
 
